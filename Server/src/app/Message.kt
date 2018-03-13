@@ -7,9 +7,9 @@ data class Message(var userName: String, var message: String, var date: Date, va
     override fun toString(): String {
 
         return if(status){
-            "$userName on $date \n$message"
+            "${userName.toUpperCase()} on $date \n$message\n\n"
         }else{
-            "$userName $message"
+            "${userName.toUpperCase()} $message\n\n"
         }
     }
 }

@@ -78,10 +78,10 @@ class View(var trn: Socket) : JFrame(){
         jtMessage!!.text = ""
 
         if(message.message=="ha salido del grupo" ||message.message=="se acaba de unir al grupo"){
-
             jtConversation!!.append(message.toString())
         }else{
             jtConversation!!.append(message.toString())
+
         }
 
 
