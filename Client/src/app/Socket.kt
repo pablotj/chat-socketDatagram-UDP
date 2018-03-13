@@ -7,26 +7,24 @@ import java.net.InetSocketAddress
 import java.util.*
 
 class Socket(var nameUser: String,var serverHostname: String, var serverPort: Int): Thread() {
+
     var ui: View? = null
-
-    override fun run() {
-        connect()
-        listen().start()
-        ui = View(this@Socket)
-        send(app.Message(nameUser,"se acaba de unir al grupo",Date(),hostname!!,port!!,false))
-    }
-
     private var datagramSocket: DatagramSocket? = null
     private var addr1: InetSocketAddress? = null
-
-
     var port: Int? = null
     var hostname: String? = null
+
+    init {
+        connect()
+        receive()
+        ui = View(this@Socket)
+        send(app.Message(nameUser,"has just joined the group",Date(),hostname!!,port!!,false))
+    }
 
     /**
      * Open socket
      */
-    fun connect() {
+    private fun connect() {
         val to = 6000
         val from = 5000
         port = Random().nextInt(to - from) + from
@@ -41,39 +39,50 @@ class Socket(var nameUser: String,var serverHostname: String, var serverPort: In
     /**
      * Received Messages from Server
      */
-    inner class listen : Thread() {
-        override fun run() {
+    private fun receive () {
+        Thread(Runnable {
 
-            var x: Message
+            run {
+                var x: Message
 
-            while (true) {
+                while (true) {
 
-                val messageInfo = ByteArray(20000)
+                    val messageInfo = ByteArray(20000)
 
-                val datagrama1 = DatagramPacket(messageInfo, 700)
-                datagramSocket!!.receive(datagrama1)
+                    val datagrama1 = DatagramPacket(messageInfo, 700)
+                    datagramSocket!!.receive(datagrama1)
 
-                x = Serializable().deserialize(messageInfo) as Message
+                    x = Serializable().deserialize(messageInfo) as Message
 
-                ui!!.write(x)
+                    ui!!.write(x)
 
+                }
             }
+        }).apply {
+            start()
         }
     }
     /**
      * Send Message to Server
      */
     fun send(message: Message) {
-        try {
+        Thread(Runnable {
+            run{
+                try {
 
-            val messageInfo = Serializable().serializable(message)
-            val addr2 = InetAddress.getByName(serverHostname)
-            val datagrama2 = DatagramPacket(messageInfo, messageInfo.size, addr2, serverPort)
-            datagramSocket!!.send(datagrama2)
-        } catch (e: Exception) {
-            println("Error al enviar el mensaje")
+                    val messageInfo = Serializable().serializable(message)
+                    val addr2 = InetAddress.getByName(serverHostname)
+                    val datagrama2 = DatagramPacket(messageInfo, messageInfo.size, addr2, serverPort)
+                    datagramSocket!!.send(datagrama2)
+                } catch (e: Exception) {
+                    println("Error al enviar el mensaje")
+                }
+            }
+        }).apply {
+            start()
+            join()
+            interrupt()
         }
-
     }
 
     /**

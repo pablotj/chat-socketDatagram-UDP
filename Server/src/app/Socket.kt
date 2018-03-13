@@ -6,21 +6,18 @@ import java.net.InetAddress
 import java.net.InetSocketAddress
 import java.util.HashSet
 
-
-
 class Socket(var hostname: String, var port: Int){
 
     var historic: ArrayList<Int> = ArrayList()
     var datagramSocket: DatagramSocket? = null
     var addr1: InetSocketAddress? = null
 
-
     init {
         connect()
         receive()
     }
 
-    fun send(message: Message){
+    private fun send(message: Message){
         val noDuplicates = HashSet<Int>()
         noDuplicates.addAll(historic)
         historic.clear()
@@ -42,18 +39,16 @@ class Socket(var hostname: String, var port: Int){
                     } catch (e: Exception) {
                         println("Error al enviar el mensaje")
 
-
                 }}
             }
         }).apply {
             start()
             join()
             interrupt()
-
         }
     }
 
-    fun receive(){
+    private fun receive(){
 
         val tReceive = Thread(Runnable {
 
@@ -81,12 +76,9 @@ class Socket(var hostname: String, var port: Int){
         tReceive.start()
     }
 
-    fun connect(){
+    private fun connect(){
 
-        this.port = port
-        this.hostname = hostname
-
-        addr1 = InetSocketAddress(hostname, port!!)
+        addr1 = InetSocketAddress(hostname, port)
         datagramSocket = DatagramSocket(addr1)
     }
 }
