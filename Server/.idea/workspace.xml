@@ -40,8 +40,8 @@
       <file leaf-file-name="Message.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/Message.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="280">
+              <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
               <folding>
                 <element signature="e#13#59#0" expanded="true" />
               </folding>
@@ -348,8 +348,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/Message.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="280">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding>
             <element signature="e#13#59#0" expanded="true" />
           </folding>

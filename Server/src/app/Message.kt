@@ -6,11 +6,10 @@ import java.util.*
 data class Message(var userName: String, var message: String, var date: Date, var hostname: String, var host: Int,  var status: Boolean): Serializable{
     override fun toString(): String {
 
-        val rtn = if(status){
+        return if(status){
             "$userName on $date \n$message"
         }else{
             "$userName $message"
         }
-        return rtn
     }
 }
