@@ -20,7 +20,7 @@ class Socket(var hostname: String, var port: Int){
         receive()
     }
 
-    @Synchronized  fun send(message: Message){
+    fun send(message: Message){
         val noDuplicates = HashSet<Int>()
         noDuplicates.addAll(historic)
         historic.clear()
@@ -53,7 +53,7 @@ class Socket(var hostname: String, var port: Int){
         }
     }
 
-    @Synchronized fun receive(){
+    fun receive(){
 
         val tReceive = Thread(Runnable {
 
