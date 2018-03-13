@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream
 
 open class Serializable{
 
-    fun serializable(obj: Object): ByteArray{
+    fun serializable(obj: Message): ByteArray{
         val outByte = ByteArrayOutputStream()
         val outObj = ObjectOutputStream(outByte)
         outObj.writeObject(obj)

@@ -4,8 +4,6 @@ import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
 import java.net.InetSocketAddress
-import javax.swing.text.View
-import java.util.Collections.addAll
 import java.util.HashSet
 
 
@@ -22,7 +20,7 @@ class Socket(var hostname: String, var port: Int){
         receive()
     }
 
-    @Synchronized  fun send(message: Object){
+    @Synchronized  fun send(message: Message){
         val noDuplicates = HashSet<Int>()
         noDuplicates.addAll(historic)
         historic.clear()
@@ -61,7 +59,7 @@ class Socket(var hostname: String, var port: Int){
 
             run{
 
-                var x: Object
+                var x: Message
 
                 while (true) {
 
@@ -70,7 +68,7 @@ class Socket(var hostname: String, var port: Int){
                     val datagrama1 = DatagramPacket(messageInfo, 700)
                     datagramSocket!!.receive(datagrama1)
 
-                    x = Serializable().deserialize(messageInfo) as Object
+                    x = Serializable().deserialize(messageInfo) as Message
 
                     historic.add(x.host)
                     send(x)

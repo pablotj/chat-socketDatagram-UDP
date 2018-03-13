@@ -13,7 +13,7 @@ class Socket(var nameUser: String,var serverHostname: String, var serverPort: In
         connect()
         listen().start()
         ui = View(this@Socket)
-        send(app.Object(nameUser,"se acaba de unir al grupo",Date(),hostname!!,port!!))
+        send(app.Message(nameUser,"se acaba de unir al grupo",Date(),hostname!!,port!!))
     }
 
     private var datagramSocket: DatagramSocket? = null
@@ -44,7 +44,7 @@ class Socket(var nameUser: String,var serverHostname: String, var serverPort: In
     inner class listen : Thread() {
         override fun run() {
 
-            var x: Object
+            var x: Message
 
             while (true) {
 
@@ -53,7 +53,7 @@ class Socket(var nameUser: String,var serverHostname: String, var serverPort: In
                 val datagrama1 = DatagramPacket(messageInfo, 700)
                 datagramSocket!!.receive(datagrama1)
 
-                x = Serializable().deserialize(messageInfo) as Object
+                x = Serializable().deserialize(messageInfo) as Message
 
                 ui!!.write(x)
 
@@ -63,7 +63,7 @@ class Socket(var nameUser: String,var serverHostname: String, var serverPort: In
     /**
      * Send Message to Server
      */
-    fun send(message: Object) {
+    fun send(message: Message) {
         try {
 
             val messageInfo = Serializable().serializable(message)
