@@ -31,7 +31,7 @@ class View(var trn: Socket) : JFrame(){
         defaultCloseOperation = JFrame.DO_NOTHING_ON_CLOSE
         addWindowListener(object : WindowAdapter() {
             override fun windowClosing(windowEvent: WindowEvent?) {
-                trn.send(Message(trn.nameUser, "ha salido del grupo", Date(),trn.hostname!!, trn.port!!))
+                trn.send(Message(trn.nameUser, "ha salido del grupo", Date(),trn.hostname!!, trn.port!!,false))
                 System.exit(0)
             }
         })
@@ -79,7 +79,7 @@ class View(var trn: Socket) : JFrame(){
 
         if(message.message=="ha salido del grupo" ||message.message=="se acaba de unir al grupo"){
 
-            jtConversation!!.append(message.toStringOther())
+            jtConversation!!.append(message.toString())
         }else{
             jtConversation!!.append(message.toString())
         }
@@ -92,7 +92,7 @@ class View(var trn: Socket) : JFrame(){
 
         override fun actionPerformed(e: ActionEvent) {
 
-             trn.send(Message(trn.nameUser,jtMessage!!.text, Date(),trn.hostname!!, trn.port!!))
+             trn.send(Message(trn.nameUser,jtMessage!!.text, Date(),trn.hostname!!, trn.port!!,true))
         }
     }
 

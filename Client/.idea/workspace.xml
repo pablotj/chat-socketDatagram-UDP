@@ -22,14 +22,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/Message.kt">
+      <file leaf-file-name="Socket.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/Socket.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-              <folding>
-                <element signature="e#13#59#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-797">
+              <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/View.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,10 +53,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/app/Object.kt" />
-        <option value="$PROJECT_DIR$/src/app/Socket.kt" />
-        <option value="$PROJECT_DIR$/src/app/View.kt" />
         <option value="$PROJECT_DIR$/src/app/Main.kt" />
         <option value="$PROJECT_DIR$/src/app/Message.kt" />
+        <option value="$PROJECT_DIR$/src/app/Socket.kt" />
+        <option value="$PROJECT_DIR$/src/app/View.kt" />
       </list>
     </option>
   </component>
@@ -284,19 +292,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Socket.kt">
+    <entry file="file://$PROJECT_DIR$/src/app/Message.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-824">
-          <caret line="15" column="78" lean-forward="false" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/View.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1306">
-          <caret line="94" column="81" lean-forward="false" selection-start-line="94" selection-start-column="81" selection-end-line="94" selection-end-column="81" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding>
+            <element signature="e#13#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -308,13 +310,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Message.kt">
+    <entry file="file://$PROJECT_DIR$/src/app/View.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <element signature="e#13#59#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Socket.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-797">
+          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

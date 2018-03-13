@@ -13,7 +13,7 @@ class Socket(var nameUser: String,var serverHostname: String, var serverPort: In
         connect()
         listen().start()
         ui = View(this@Socket)
-        send(app.Message(nameUser,"se acaba de unir al grupo",Date(),hostname!!,port!!))
+        send(app.Message(nameUser,"se acaba de unir al grupo",Date(),hostname!!,port!!,false))
     }
 
     private var datagramSocket: DatagramSocket? = null
